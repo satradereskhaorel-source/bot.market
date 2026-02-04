@@ -1,0 +1,23 @@
+# Используем официальный образ Python
+FROM python:3.11-slim
+
+# Устанавливаем зависимости системы (если нужны)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    libpq-dev \
+ && rm -rf /var/lib/apt/lists/*
+
+# Рабочая директория
+WORKDIR /app
+
+# Копируем зависимости и проект
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+COPY . /app
+
+# Указываем, что БД будет в корне (путь задаётся в .env)
+VOLUME ["/app"]
+
+# Запуск бота
+CMD ["python", "-m", "bot"]

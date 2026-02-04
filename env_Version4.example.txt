@@ -1,0 +1,6 @@
+# Скопируйте этот файл в .env и заполните значения
+BOT_TOKEN=8550146098:AAHPjIpkyhpEeuG1rdNIDM0eLd-07Mea-7M
+ADMIN_ID=123456789
+CHANNEL_USERNAME=@YourChannel
+LOG_LEVEL=INFO
+DB_PATH=bot.db

@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  botorpmarket:
+    build: .
+    container_name: botorpmarket
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    # нет открытых портов, бот использует polling
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
